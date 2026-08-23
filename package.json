@@ -1,0 +1,16 @@
+{
+  "name": "spokart-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static informational website for Spokart — B2B wholesale sports equipment supply.",
+  "scripts": {
+    "build": "node build.mjs",
+    "photos": "bash tools/fetch-photos.sh",
+    "serve": "npm run build && python3 -m http.server 8080",
+    "dev": "npm run serve",
+    "start": "npm run serve"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
