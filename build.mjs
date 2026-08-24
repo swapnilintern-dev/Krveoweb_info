@@ -27,7 +27,7 @@ const read = (p) => readFileSync(join(root, p), 'utf8');
    --------------------------------------------------------------------------- */
 const site = {
   BRAND:         'SPOCART',
-  SITE_URL:      'https://www.spocart.in',
+  SITE_URL: 'https://www.spocart.info',
   PHONE:         '+91 70619 11575',
   PHONE_TEL:     '+917061911575',
   WHATSAPP:      'https://wa.me/917061911575',
