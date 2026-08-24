@@ -1,0 +1,129 @@
+<!--META
+{
+  "title": "Sports Goods & Equipment Wholesale in Ranchi | SPOCART",
+  "desc": "Browse SPOCART's sports goods wholesale range in Ranchi: team and racket sports, athletics, fitness, apparel, footwear, school supplies and infrastructure.",
+  "crumb": "Products",
+  "priority": "0.9"
+}
+-->
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero__inner">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span class="sep" aria-hidden="true">/</span>
+        <span aria-current="page">Products</span>
+      </nav>
+      <p class="eyebrow">What we supply</p>
+      <h1 class="h1">{{CATEGORY_COUNT}} sports product categories</h1>
+      <p class="lead">
+        The full sports goods wholesale range we supply from Ranchi, organised four ways — by
+        sport, by product type, by institutional requirement and by project. Open a category
+        to see everything inside it, then send us the lines and quantities you need.
+      </p>
+      <div class="btn-row" style="margin-top:1.75rem">
+        <a class="btn" href="contact.html#enquiry">Request a Quote <svg aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
+        <a class="btn btn--ghost-light" href="{{WA_GENERAL}}" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> WhatsApp Your List
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FILTERABLE CATEGORY GRID ============================ -->
+<section class="section" aria-labelledby="grid-title">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-head__text">
+        <p class="eyebrow">Categories</p>
+        <h2 id="grid-title" class="h2">Browse the <span class="accent">full range</span></h2>
+        <p class="lead">
+          Filter to the part of the catalogue that fits your business. Availability spans the
+          <a href="brands.html">{{BRAND_COUNT}} brands in our portfolio</a>.
+        </p>
+      </div>
+      <div class="btn-row" data-filter-bar role="group" aria-label="Filter categories">
+{{CATEGORY_FILTERS}}
+      </div>
+    </div>
+
+    <div class="grid grid--3" data-filter-grid>
+{{CATEGORY_CARDS}}
+    </div>
+    <p class="center muted" data-filter-empty hidden style="margin-top:2rem">No categories match that filter.</p>
+  </div>
+</section>
+
+<!-- ============================ INSTITUTIONAL ============================ -->
+<section class="section section--paper" id="institutional-supply" aria-labelledby="inst-title">
+  <div class="container split">
+    <div data-reveal>
+      <p class="eyebrow">Schools, colleges &amp; institutions</p>
+      <h2 id="inst-title" class="h2">Institutional <span class="accent">sports supply</span></h2>
+      <p class="lead">
+        Annual PE inventory, house-wise uniforms, sports-day equipment, playground fit-outs
+        and storage for schools and colleges in Ranchi and across Jharkhand — quoted line by
+        line so a purchase committee can approve it without going back and forth.
+      </p>
+      <ul class="spec-list">
+        <li>School sports kits, house uniforms and team uniforms</li>
+        <li>PE equipment and school-level playing equipment</li>
+        <li>Playground equipment for primary and junior sections</li>
+        <li>Indoor and outdoor games for common rooms and hostels</li>
+        <li>Athletics equipment for annual sports days</li>
+        <li>Sports storage, racks and kit organisation</li>
+      </ul>
+      <div class="btn-row" style="margin-top:1.75rem">
+        <a class="btn btn--sm" href="{{MAIL_INSTITUTION}}">Send an Institution Enquiry</a>
+        <a class="btn btn--outline btn--sm" href="b2b-sports-supply.html#institutions">How It Works</a>
+      </div>
+    </div>
+    <div class="split__media" data-reveal>
+      <div class="media-stack__main imgwrap" style="border-radius:var(--r-lg)">
+        <x-img src="runners-group" ratio="4/3" sizes="(max-width:960px) 92vw, 45vw"
+               alt="Students training together during an athletics session">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ INFRASTRUCTURE TEASER ============================ -->
+<section class="section section--dark infra-band" aria-labelledby="infra-title">
+  <span class="slash infra-band__slash" aria-hidden="true"></span>
+  <div class="container">
+    <div class="section-head">
+      <div class="section-head__text">
+        <p class="eyebrow">Projects, not line items</p>
+        <h2 id="infra-title" class="h2">Sports <span class="accent">infrastructure</span></h2>
+        <p class="lead">
+          Courts, grounds, synthetic tracks, artificial turf, gymnasiums, indoor halls,
+          lighting, scoreboards, seating, fencing and flooring — scoped and supplied as a
+          project rather than a shopping list.
+        </p>
+      </div>
+      <a class="btn" href="#infrastructure">See the Full Scope <svg aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
+    </div>
+    <p class="pill-row pill-row--lg pill-row--dark">{{INFRA_ITEMS}}</p>
+    <div class="btn-row" style="margin-top:2rem">
+      <a class="btn" href="{{WA_INFRA}}" target="_blank" rel="noopener">
+        <svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> Discuss Your Project
+      </a>
+      <a class="btn btn--ghost-light" href="{{MAIL_INFRA}}">Request a Project Consultation</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container cta-band__inner">
+    <div class="cta-band__text">
+      <p class="eyebrow" style="color:#fff">Order from us</p>
+      <h2 class="h1">Send us your requirement list</h2>
+      <p>Share the categories, brands and quantities you are looking at and we will quote against them.</p>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn--white" href="contact.html#enquiry">Request a Quote</a>
+      <a class="btn btn--ghost-light" href="{{WA_BULK}}" target="_blank" rel="noopener">WhatsApp Us</a>
+    </div>
+  </div>
+</section>

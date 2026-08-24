@@ -1,5 +1,5 @@
 /* =========================================================================
-   Spokart — site behaviour
+   SPOCART — site behaviour
    Vanilla JS, no dependencies. Progressive enhancement only:
    every page remains usable with JS disabled.
    ========================================================================= */
@@ -287,17 +287,6 @@
   }
 
   /* ---------------------------------------------------------------------
-     Coming-soon progress bar
-     --------------------------------------------------------------------- */
-  function initSoon() {
-    var bar = document.querySelector('.soon__bar i');
-    if (!bar) return;
-    requestAnimationFrame(function () {
-      setTimeout(function () { bar.style.width = bar.getAttribute('data-progress') || '65%'; }, 220);
-    });
-  }
-
-  /* ---------------------------------------------------------------------
      Current year in footers
      --------------------------------------------------------------------- */
   function initYear() {
@@ -315,7 +304,6 @@
     initForms();
     initImages();
     initFilter();
-    initSoon();
     initYear();
   }
 

@@ -1,7 +1,9 @@
 <!--META
 {
-  "title": "Spokart B2B App — Order Sports Stock from Your Phone",
-  "desc": "The Spokart mobile app puts the wholesale catalogue, your trade price list and your order history in one place. Android and iOS versions are launching soon."
+  "title": "SPOCART Mobile App \u2014 Order Sports Supplies Online",
+  "desc": "The SPOCART app will put the sports catalogue, your requirement lists and your order history in one place for trade buyers. Android and iOS launching soon.",
+  "crumb": "Download App",
+  "priority": "0.5"
 }
 -->
 
@@ -13,10 +15,11 @@
         <span aria-current="page">Download App</span>
       </nav>
       <p class="eyebrow">Mobile app</p>
-      <h1 class="h1">Spokart in your pocket</h1>
+      <h1 class="h1">SPOCART in your pocket</h1>
       <p class="lead">
-        Reorder your fast movers, check stock and track dispatch without leaving the shop
-        floor. The Spokart B2B app is being built for partners who buy on the move.
+        Send a requirement, repeat an order and track dispatch without leaving the shop
+        floor or the sports room. The SPOCART app is being built for trade buyers who work on
+        the move — sports shops, academies and institutions across India.
       </p>
       <p style="margin-top:1.25rem"><span class="soon-pill" style="background:rgba(255,255,255,.14);color:#fff">Launching soon</span></p>
       <div class="btn-row" style="margin-top:1.5rem">
@@ -51,12 +54,12 @@
       <article class="card" data-reveal>
         <span class="card__icon" aria-hidden="true"><svg><use href="#i-layers"></use></svg></span>
         <h3>Full catalogue</h3>
-        <p>Every category, with specifications, sizes and pack quantities.</p>
+        <p>All {{CATEGORY_COUNT}} categories, with specifications, sizes and pack quantities.</p>
       </article>
       <article class="card" data-reveal>
         <span class="card__icon" aria-hidden="true"><svg><use href="#i-tag"></use></svg></span>
-        <h3>Your trade prices</h3>
-        <p>Signed-in partners see their own rate card, not public pricing.</p>
+        <h3>Your own pricing</h3>
+        <p>Signed-in business accounts see the rates quoted to them, not public pricing.</p>
       </article>
       <article class="card" data-reveal>
         <span class="card__icon" aria-hidden="true"><svg><use href="#i-refresh"></use></svg></span>
@@ -90,9 +93,9 @@
       </article>
     </div>
 
-    <p class="build-note">
-      Feature list describes the planned first release. Trim it to what will actually ship,
-      and replace the screenshots below with real app captures before the store listing goes live.
+    <p class="muted center" style="margin-top:2rem;font-size:.88rem">
+      These are the features planned for the first release. Feature availability will be
+      confirmed at launch.
     </p>
   </div>
 </section>
@@ -103,14 +106,14 @@
     <div class="split__media" data-reveal>
       <div class="phone-shot imgwrap">
         <x-img src="assets/img/app-mockup.svg" ratio="5/4" w="700"
-               alt="Mockup of the Spokart B2B app showing the catalogue, trade pricing and a one-tap reorder button">
+               alt="Screen preview of the SPOCART trade ordering app, launching soon on Android and iOS">
       </div>
     </div>
     <div data-reveal>
       <p class="eyebrow">Coming to both stores</p>
       <h2 id="preview-title" class="h2">Android and iOS,<br><span class="accent">same account</span></h2>
       <p class="lead">
-        Sign in with your Spokart trade account and your catalogue, pricing and order history
+        Sign in with your SPOCART trade account and your catalogue, pricing and order history
         follow you across devices. Nothing to set up twice.
       </p>
       <ul class="spec-list">
@@ -175,7 +178,7 @@
         </label>
         <label class="check field--full">
           <input type="checkbox" name="consent" required>
-          <span>Notify me when the Spokart app launches. <em class="req" aria-hidden="true">*</em></span>
+          <span>Notify me when the SPOCART app launches. <em class="req" aria-hidden="true">*</em></span>
         </label>
       </div>
       <div class="btn-row" style="margin-top:1.25rem">
@@ -191,12 +194,12 @@
   <div class="container cta-band__inner">
     <div class="cta-band__text">
       <p class="eyebrow" style="color:#fff">In the meantime</p>
-      <h2 class="h1">Order through the online store</h2>
-      <p>The full catalogue is already available on the web — the app simply makes it faster.</p>
+      <h2 class="h1">Send us your requirement today</h2>
+      <p>The catalogue is already on the web — the app will simply make reordering faster.</p>
     </div>
     <div class="btn-row">
-      <a class="btn btn--white" href="{{SHOP_URL}}" target="_blank" rel="noopener">Shop Online</a>
-      <a class="btn btn--ghost-light" href="partner.html#enquiry">Become a Partner</a>
+      <a class="btn btn--white" href="products.html">Browse Products</a>
+      <a class="btn btn--ghost-light" href="{{WA_GENERAL}}" target="_blank" rel="noopener">WhatsApp Us</a>
     </div>
   </div>
 </section>

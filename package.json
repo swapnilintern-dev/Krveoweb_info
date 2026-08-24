@@ -1,8 +1,8 @@
 {
-  "name": "spokart-website",
+  "name": "spocart-website",
   "version": "1.0.0",
   "private": true,
-  "description": "Static informational website for Spokart — B2B wholesale sports equipment supply.",
+  "description": "Static informational website for SPOCART — sports supply for businesses and institutions.",
   "scripts": {
     "build": "node build.mjs",
     "photos": "bash tools/fetch-photos.sh",

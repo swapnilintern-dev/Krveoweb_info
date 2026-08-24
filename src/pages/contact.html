@@ -1,7 +1,9 @@
 <!--META
 {
-  "title": "Contact Spokart — Sales, Support & Wholesale Enquiries",
-  "desc": "Talk to the Spokart team about wholesale sports equipment supply. Call, WhatsApp or email us, or send an enquiry and we will respond within one business day."
+  "title": "Contact SPOCART \u2014 Sports Equipment Supplier, Ranchi",
+  "desc": "Contact SPOCART in Ranchi, Jharkhand for wholesale sports equipment. Call or WhatsApp +91 70619 11575, or email sales@spocart.in with your requirement.",
+  "crumb": "Contact",
+  "priority": "0.9"
 }
 -->
 
@@ -10,70 +12,97 @@
     <div class="page-hero__inner">
       <nav class="crumbs" aria-label="Breadcrumb">
         <a href="index.html">Home</a><span class="sep" aria-hidden="true">/</span>
-        <span aria-current="page">Contact Us</span>
+        <span aria-current="page">Contact</span>
       </nav>
       <p class="eyebrow">Get in touch</p>
       <h1 class="h1">Let's talk business</h1>
       <p class="lead">
-        Bulk quotes, product availability, account questions or a collaboration proposal —
-        pick whichever channel suits you. Our team replies within one business day.
+        Bulk quotes, product availability, institutional requirements, order support or a
+        sports infrastructure project — pick whichever channel suits you. We are based in
+        Ranchi, Jharkhand and supply across India.
       </p>
-    </div>
-  </div>
-</section>
-
-<!-- Quick channels -->
-<section class="section section--tight" aria-labelledby="channels-title">
-  <div class="container">
-    <h2 id="channels-title" class="sr-only">Ways to reach us</h2>
-    <div class="grid grid--4">
-      <a class="contact-card" href="tel:{{PHONE_TEL}}" data-reveal>
-        <span class="contact-card__icon" aria-hidden="true"><svg><use href="#i-phone"></use></svg></span>
-        <span><small>Call now</small><b class="ph">{{PHONE}}</b></span>
-      </a>
-      <a class="contact-card" href="{{WHATSAPP}}" target="_blank" rel="noopener" data-reveal>
-        <span class="contact-card__icon contact-card__icon--wa" aria-hidden="true"><svg><use href="#i-whatsapp"></use></svg></span>
-        <span><small>WhatsApp</small><b>Quick enquiries</b></span>
-      </a>
-      <a class="contact-card" href="mailto:{{EMAIL}}" data-reveal>
-        <span class="contact-card__icon contact-card__icon--dark" aria-hidden="true"><svg><use href="#i-mail"></use></svg></span>
-        <span><small>Email sales</small><b class="ph">{{EMAIL}}</b></span>
-      </a>
-      <div class="contact-card" data-reveal>
-        <span class="contact-card__icon contact-card__icon--dark" aria-hidden="true"><svg><use href="#i-clock"></use></svg></span>
-        <span><small>Working hours</small><b class="ph">{{HOURS}}</b></span>
+      <div class="btn-row" style="margin-top:1.75rem">
+        <a class="btn" href="tel:{{PHONE_TEL}}">
+          <svg aria-hidden="true"><use href="#i-phone"></use></svg> Call Now
+        </a>
+        <a class="btn btn--ghost-light" href="{{WA_GENERAL}}" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> WhatsApp Us
+        </a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Form + details -->
+<!-- ============================ CHANNELS ============================ -->
+<section class="section section--tight" aria-labelledby="channels-title">
+  <div class="container">
+    <h2 id="channels-title" class="sr-only">Ways to reach us</h2>
+    <div class="grid grid--4">
+      <a class="contact-card" href="{{MAIL_SALES}}" data-reveal>
+        <span class="contact-card__icon contact-card__icon--dark" aria-hidden="true"><svg><use href="#i-mail"></use></svg></span>
+        <span><small>Sales</small><b>{{EMAIL}}</b></span>
+      </a>
+      <a class="contact-card" href="{{MAIL_SUPPORT}}" data-reveal>
+        <span class="contact-card__icon contact-card__icon--dark" aria-hidden="true"><svg><use href="#i-headset"></use></svg></span>
+        <span><small>Support</small><b>{{EMAIL_SUPPORT}}</b></span>
+      </a>
+      <a class="contact-card" href="tel:{{PHONE_TEL}}" data-reveal>
+        <span class="contact-card__icon" aria-hidden="true"><svg><use href="#i-phone"></use></svg></span>
+        <span><small>Phone</small><b>{{PHONE}}</b></span>
+      </a>
+      <a class="contact-card" href="{{WA_GENERAL}}" target="_blank" rel="noopener" data-reveal>
+        <span class="contact-card__icon contact-card__icon--wa" aria-hidden="true"><svg><use href="#i-whatsapp"></use></svg></span>
+        <span><small>WhatsApp</small><b>{{PHONE}}</b></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FORM + DETAILS ============================ -->
 <section class="section" id="enquiry" aria-labelledby="form-title">
   <div class="container split">
     <div data-reveal>
       <p class="eyebrow">Send an enquiry</p>
       <h2 id="form-title" class="h2">Tell us what<br><span class="accent">you need</span></h2>
       <p class="lead">
-        The more detail you give us — sports, product types, quantities, timelines — the
-        more useful our first reply will be.
+        The more detail you give us — sports, product types, brands, quantities and
+        timelines — the more useful our first reply will be. Not sure what to list? Start from
+        the <a href="products.html">product categories</a> or the
+        <a href="brands.html">brands we supply</a>.
       </p>
 
       <div class="kv" style="margin-top:2rem">
         <div class="kv__row">
-          <span class="kv__k"><svg aria-hidden="true"><use href="#i-pin"></use></svg> Registered office</span>
-          <span class="kv__v ph">{{ADDRESS_FULL}}</span>
+          <span class="kv__k"><svg aria-hidden="true"><use href="#i-mail"></use></svg> Sales</span>
+          <span class="kv__v"><a href="{{MAIL_SALES}}">{{EMAIL}}</a></span>
         </div>
         <div class="kv__row">
-          <span class="kv__k"><svg aria-hidden="true"><use href="#i-phone"></use></svg> Phone</span>
-          <span class="kv__v"><a href="tel:{{PHONE_TEL}}" class="ph">{{PHONE}}</a> &nbsp;·&nbsp; <span class="ph">{{PHONE_ALT}}</span></span>
+          <span class="kv__k"><svg aria-hidden="true"><use href="#i-headset"></use></svg> Support</span>
+          <span class="kv__v"><a href="{{MAIL_SUPPORT}}">{{EMAIL_SUPPORT}}</a></span>
         </div>
         <div class="kv__row">
-          <span class="kv__k"><svg aria-hidden="true"><use href="#i-mail"></use></svg> Email</span>
-          <span class="kv__v"><a href="mailto:{{EMAIL}}" class="ph">{{EMAIL}}</a> &nbsp;·&nbsp; <a href="mailto:{{EMAIL_SUPPORT}}" class="ph">{{EMAIL_SUPPORT}}</a></span>
+          <span class="kv__k"><svg aria-hidden="true"><use href="#i-phone"></use></svg> Phone &amp; WhatsApp</span>
+          <span class="kv__v"><a href="tel:{{PHONE_TEL}}">{{PHONE}}</a></span>
         </div>
         <div class="kv__row">
-          <span class="kv__k"><svg aria-hidden="true"><use href="#i-file"></use></svg> Tax registration</span>
-          <span class="kv__v ph">{{GST}}</span>
+          <span class="kv__k"><svg aria-hidden="true"><use href="#i-pin"></use></svg> Based in</span>
+          <span class="kv__v">{{CITY}}, {{STATE}}, {{COUNTRY}}</span>
+        </div>
+        <div class="kv__row">
+          <span class="kv__k"><svg aria-hidden="true"><use href="#i-globe"></use></svg> Serving</span>
+          <span class="kv__v">Businesses and institutions across {{REGION}}</span>
+        </div>
+      </div>
+
+      <div class="notice" data-reveal style="margin-top:2rem">
+        <span class="notice__icon" aria-hidden="true"><svg><use href="#i-whatsapp"></use></svg></span>
+        <div>
+          <b>Sending a long list?</b>
+          <p>
+            WhatsApp is usually the quickest route for a bulk requirement — a photo of your
+            list or a spreadsheet works fine, and saves you retyping it.
+            <a class="link-arrow" href="{{WA_BULK}}" target="_blank" rel="noopener">WhatsApp {{PHONE}} <svg aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
+          </p>
         </div>
       </div>
     </div>
@@ -87,8 +116,8 @@
             <input class="input" type="text" name="name" autocomplete="name" required placeholder="Full name">
           </label>
           <label class="field">
-            <span>Business name</span>
-            <input class="input" type="text" name="business" autocomplete="organization" placeholder="Shop, academy or institution">
+            <span>Business / institution</span>
+            <input class="input" type="text" name="business" autocomplete="organization" placeholder="Shop, academy, school or club">
           </label>
           <label class="field">
             <span>Phone / WhatsApp <em class="req" aria-hidden="true">*</em></span>
@@ -102,11 +131,12 @@
             <span>What is this about? <em class="req" aria-hidden="true">*</em></span>
             <select class="input" name="topic" required>
               <option value="">Select an option</option>
-              <option>Wholesale / bulk enquiry</option>
-              <option>Open a trade account</option>
+              <option>Bulk / B2B enquiry</option>
+              <option>School or institutional supply</option>
+              <option>Sports infrastructure project</option>
               <option>Product availability &amp; pricing</option>
+              <option>Brand availability</option>
               <option>Existing order or delivery</option>
-              <option>Returns or replacement</option>
               <option>Brand collaboration</option>
               <option>Something else</option>
             </select>
@@ -117,7 +147,7 @@
           </label>
           <label class="check field--full">
             <input type="checkbox" name="consent" required>
-            <span>I agree to be contacted by Spokart about this enquiry. <em class="req" aria-hidden="true">*</em></span>
+            <span>I agree to be contacted by SPOCART about this enquiry. <em class="req" aria-hidden="true">*</em></span>
           </label>
         </div>
         <div class="btn-row" style="margin-top:1.25rem">
@@ -130,80 +160,34 @@
   </div>
 </section>
 
-<!-- Departments -->
+<!-- ============================ REACH THE RIGHT DESK ============================ -->
 <section class="section section--paper" aria-labelledby="dept-title">
   <div class="container">
     <div class="section-head section-head--center">
       <div class="section-head__text">
         <p class="eyebrow eyebrow--center">Reach the right desk</p>
-        <h2 id="dept-title" class="h2">Departments</h2>
+        <h2 id="dept-title" class="h2">Who to <span class="accent">contact</span></h2>
       </div>
     </div>
-    <div class="grid grid--4">
+    <div class="grid grid--3">
       <article class="card" data-reveal>
         <span class="card__icon" aria-hidden="true"><svg><use href="#i-handshake"></use></svg></span>
-        <h3>Sales &amp; new accounts</h3>
-        <p>Trade pricing, catalogues and onboarding.</p>
-        <p><a class="link-arrow" href="mailto:{{EMAIL}}"><span class="ph">{{EMAIL}}</span></a></p>
+        <h3>Sales &amp; new enquiries</h3>
+        <p>Quotes, product and brand availability, bulk requirements, institutional supply and infrastructure projects.</p>
+        <p><a class="link-arrow" href="{{MAIL_SALES}}">{{EMAIL}} <svg aria-hidden="true"><use href="#i-arrow-right"></use></svg></a></p>
       </article>
       <article class="card" data-reveal>
         <span class="card__icon" aria-hidden="true"><svg><use href="#i-headset"></use></svg></span>
         <h3>Order support</h3>
-        <p>Dispatch status, documentation and returns.</p>
-        <p><a class="link-arrow" href="mailto:{{EMAIL_SUPPORT}}"><span class="ph">{{EMAIL_SUPPORT}}</span></a></p>
+        <p>Status of a placed order, dispatch and documentation questions, replacements and after-sales help.</p>
+        <p><a class="link-arrow" href="{{MAIL_SUPPORT}}">{{EMAIL_SUPPORT}} <svg aria-hidden="true"><use href="#i-arrow-right"></use></svg></a></p>
       </article>
       <article class="card" data-reveal>
-        <span class="card__icon" aria-hidden="true"><svg><use href="#i-file"></use></svg></span>
-        <h3>Accounts</h3>
-        <p>Invoices, credit notes and payment queries.</p>
-        <p class="ph">[accounts@spokart.example]</p>
+        <span class="card__icon" aria-hidden="true"><svg><use href="#i-whatsapp"></use></svg></span>
+        <h3>Phone &amp; WhatsApp</h3>
+        <p>The fastest route for a quick stock check, an urgent quote or sending across a requirement list.</p>
+        <p><a class="link-arrow" href="tel:{{PHONE_TEL}}">{{PHONE}} <svg aria-hidden="true"><use href="#i-arrow-right"></use></svg></a></p>
       </article>
-      <article class="card" data-reveal>
-        <span class="card__icon" aria-hidden="true"><svg><use href="#i-users"></use></svg></span>
-        <h3>Careers</h3>
-        <p>Roles in sales, warehousing and operations.</p>
-        <p class="ph">[careers@spokart.example]</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- Offices -->
-<section class="section" id="offices" aria-labelledby="offices-title">
-  <div class="container">
-    <div class="section-head">
-      <div class="section-head__text">
-        <p class="eyebrow">Find us</p>
-        <h2 id="offices-title" class="h2">Offices &amp; <span class="accent">warehouse</span></h2>
-        <p class="lead">Visits are by appointment so someone from the team is free to walk you through the range.</p>
-      </div>
-    </div>
-
-    <div class="split">
-      <div class="stack" data-reveal>
-        <article class="card">
-          <span class="card__num">Head office</span>
-          <h3 class="ph">[City] — registered office</h3>
-          <p class="ph">{{ADDRESS_FULL}}</p>
-          <p style="margin-top:1rem"><a class="link-arrow" href="tel:{{PHONE_TEL}}">Call this office <svg aria-hidden="true"><use href="#i-arrow-right"></use></svg></a></p>
-        </article>
-        <article class="card">
-          <span class="card__num">Warehouse</span>
-          <h3 class="ph">[City] — dispatch facility</h3>
-          <p class="ph">[Warehouse address line 1]<br>[Warehouse address line 2]<br>[City, State — PIN]</p>
-          <p style="margin-top:1rem"><a class="link-arrow" href="mailto:{{EMAIL_SUPPORT}}">Email dispatch <svg aria-hidden="true"><use href="#i-arrow-right"></use></svg></a></p>
-        </article>
-      </div>
-
-      <div data-reveal>
-        <div class="map-embed">
-          <div>
-            <span class="contact-card__icon" style="margin:0 auto 1rem" aria-hidden="true"><svg><use href="#i-pin"></use></svg></span>
-            <b style="display:block;color:var(--text);font-family:var(--font-display);font-size:1.05rem">Map goes here</b>
-            <p class="ph" style="margin-top:.4rem">[Embed a Google Maps iframe for the registered office. Use <code>loading="lazy"</code> and a descriptive <code>title</code> attribute so it stays fast and accessible.]</p>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -213,11 +197,11 @@
     <div class="cta-band__text">
       <p class="eyebrow">Prefer to talk?</p>
       <h2 class="h1">Call or WhatsApp us directly</h2>
-      <p>Fastest route for stock checks and urgent quotes during working hours.</p>
+      <p>The fastest route for stock checks, urgent quotes and bulk requirement lists.</p>
     </div>
     <div class="btn-row">
-      <a class="btn" href="tel:{{PHONE_TEL}}">Call Now</a>
-      <a class="btn btn--ghost-light" href="{{WHATSAPP}}" target="_blank" rel="noopener">WhatsApp Us</a>
+      <a class="btn" href="tel:{{PHONE_TEL}}">Call {{PHONE}}</a>
+      <a class="btn btn--ghost-light" href="{{WA_GENERAL}}" target="_blank" rel="noopener">WhatsApp Us</a>
     </div>
   </div>
 </section>

@@ -1,5 +1,8 @@
+# robots.txt for https://www.spocart.in
 User-agent: *
 Allow: /
 Disallow: /src/
+Disallow: /tools/
+Allow: /assets/
 
-Sitemap: https://www.spokart.example/sitemap.xml
+Sitemap: https://www.spocart.in/sitemap.xml

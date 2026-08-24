@@ -1,25 +1,23 @@
 <div class="topbar">
   <div class="container topbar__inner">
     <ul class="topbar__list">
-      <li class="topbar__item"><svg aria-hidden="true"><use href="#i-pin"></use></svg><span class="ph">{{ADDRESS_SHORT}}</span></li>
-      <li class="topbar__item"><svg aria-hidden="true"><use href="#i-clock"></use></svg><span class="ph">{{HOURS}}</span></li>
-      <li class="topbar__item"><svg aria-hidden="true"><use href="#i-mail"></use></svg><a href="mailto:{{EMAIL}}" class="ph">{{EMAIL}}</a></li>
+      <li class="topbar__item"><svg aria-hidden="true"><use href="#i-mail"></use></svg><a href="{{MAIL_SALES}}">{{EMAIL}}</a></li>
+      <li class="topbar__item"><svg aria-hidden="true"><use href="#i-headset"></use></svg><a href="{{MAIL_SUPPORT}}">{{EMAIL_SUPPORT}}</a></li>
+      <li class="topbar__item"><svg aria-hidden="true"><use href="#i-phone"></use></svg><a href="tel:{{PHONE_TEL}}">{{PHONE}}</a></li>
     </ul>
-    <div class="topbar__social" aria-label="Spokart on social media">
-      <a href="{{SOCIAL_LI}}" aria-label="Spokart on LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"></use></svg></a>
-      <a href="{{SOCIAL_IG}}" aria-label="Spokart on Instagram"><svg aria-hidden="true"><use href="#i-instagram"></use></svg></a>
-      <a href="{{SOCIAL_FB}}" aria-label="Spokart on Facebook"><svg aria-hidden="true"><use href="#i-facebook"></use></svg></a>
-      <a href="{{SOCIAL_YT}}" aria-label="Spokart on YouTube"><svg aria-hidden="true"><use href="#i-youtube"></use></svg></a>
-    </div>
+    <p class="topbar__note">
+      <svg aria-hidden="true"><use href="#i-whatsapp"></use></svg>
+      <a href="{{WA_GENERAL}}" target="_blank" rel="noopener">WhatsApp us for a quick quote</a>
+    </p>
   </div>
 </div>
 
 <header class="header">
   <div class="container">
     <nav class="nav" aria-label="Primary">
-      <a class="logo" href="index.html" aria-label="Spokart — home">
-        <span class="logo__mark" aria-hidden="true"><span>S</span></span>
-        <span class="logo__text">Spo<span class="accent">kart</span></span>
+      <a class="logo" href="index.html">
+        <img class="logo__img" src="assets/img/logo.svg" width="89" height="40"
+             alt="SPOCART — home" fetchpriority="high">
       </a>
 
       <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Open menu">
@@ -28,24 +26,21 @@
 
       <ul class="nav__menu" id="primary-menu">
         <li><a class="nav__link" data-nav="index" href="index.html">Home</a></li>
-        <li><a class="nav__link" data-nav="about" href="about.html">About Us</a></li>
-        <li><a class="nav__link" data-nav="sports" href="sports.html">Sports</a></li>
+        <li><a class="nav__link" data-nav="about" href="about.html">About</a></li>
+        <li><a class="nav__link" data-nav="products" href="products.html">Products</a></li>
         <li><a class="nav__link" data-nav="brands" href="brands.html">Brands</a></li>
-        <li><a class="nav__link" data-nav="partner" href="partner.html">B2B</a></li>
+        <li><a class="nav__link" data-nav="b2b-sports-supply" href="b2b-sports-supply.html">B2B Supply</a></li>
         <li><a class="nav__link" data-nav="contact" href="contact.html">Contact</a></li>
         <li class="nav__actions">
+          <a class="btn btn--sm" href="contact.html#enquiry">Request a Quote</a>
           <a class="btn btn--outline btn--sm" data-nav="app" href="app.html">
-            <svg aria-hidden="true"><use href="#i-download"></use></svg> Download App
+            <svg aria-hidden="true"><use href="#i-download"></use></svg> Mobile App
           </a>
-          <a class="btn btn--sm" href="partner.html#enquiry">Become a Partner</a>
         </li>
       </ul>
 
       <div class="nav__actions">
-        <a class="btn btn--outline btn--sm" data-nav="app" href="app.html">
-          <svg aria-hidden="true"><use href="#i-download"></use></svg> Download App
-        </a>
-        <a class="btn btn--sm" href="partner.html#enquiry">Become a Partner</a>
+        <a class="btn btn--sm" href="contact.html#enquiry">Request a Quote</a>
       </div>
     </nav>
   </div>

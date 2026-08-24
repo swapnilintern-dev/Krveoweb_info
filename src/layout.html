@@ -1,28 +1,45 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-IN">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{TITLE}}</title>
 <meta name="description" content="{{DESC}}">
-<link rel="canonical" href="{{SITE_URL}}/{{SLUG}}.html">
+<link rel="canonical" href="{{CANONICAL}}">
 <meta name="theme-color" content="#0B0B0C">
 <meta name="robots" content="{{ROBOTS}}">
+<meta name="author" content="SPOCART">
+
+<!-- Location. The authoritative signal is the LocalBusiness block at the foot
+     of this head; these two are the legacy equivalents some directories and
+     crawlers still read. -->
+<meta name="geo.region" content="IN-JH">
+<meta name="geo.placename" content="Ranchi, Jharkhand, India">
 
 <!-- Open Graph / social -->
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Spokart">
+<meta property="og:site_name" content="SPOCART">
 <meta property="og:title" content="{{TITLE}}">
 <meta property="og:description" content="{{DESC}}">
-<meta property="og:url" content="{{SITE_URL}}/{{SLUG}}.html">
-<meta property="og:image" content="{{SITE_URL}}/assets/img/og-image.svg">
+<meta property="og:url" content="{{CANONICAL}}">
+<meta property="og:image" content="{{SITE_URL}}/assets/img/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SPOCART — sports equipment supplier in Ranchi, Jharkhand, supplying retailers, academies, schools and institutions across India.">
+<meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{TITLE}}">
 <meta name="twitter:description" content="{{DESC}}">
-<meta name="twitter:image" content="{{SITE_URL}}/assets/img/og-image.svg">
+<meta name="twitter:image" content="{{SITE_URL}}/assets/img/og-image.png">
+<meta name="twitter:image:alt" content="SPOCART — sports equipment supplier in Ranchi, Jharkhand.">
 
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="assets/img/favicon.svg">
+<!-- Favicons: the SPOCART app-icon artwork. PNG rather than SVG because the
+     source is traced raster art — an SVG version is ~560KB, which is far too
+     heavy for an asset every page requests. -->
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/img/favicon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 
 <!-- Fonts: preconnect then load, non-blocking -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +50,8 @@
 
 <!-- Reveal animations only apply when JS can switch them back on -->
 <script>document.documentElement.classList.add('js');</script>
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v={{CSS_V}}">
+{{HEAD_EXTRA}}
 {{JSONLD}}
 </head>
 <body id="top" class="page-{{SLUG}}">
@@ -45,6 +63,6 @@
 </main>
 {{FOOTER}}
 {{QUICK}}
-<script src="assets/js/main.js" defer></script>
+<script src="assets/js/main.js?v={{JS_V}}" defer></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 /* ==========================================================================
-   Spokart — B2B Sports Equipment Wholesale
+   SPOCART — Sports Supply for Business & Institutions
    Design system + components
-   Palette: Black / White with Red accent
+   Palette: Black / White with Red accent (--red)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -86,6 +86,12 @@ body {
 
 img, svg, video { display: block; max-width: 100%; }
 img { height: auto; }
+
+/* Sprite icons are sized per-component. This is only a floor, so a <use> icon
+   never falls back to the SVG default of 300x150 while the stylesheet is still
+   arriving. :where() keeps the specificity at zero so every component rule
+   below still wins. */
+svg:where(:not([width]):not([height])) { width: 1em; height: 1em; }
 
 h1, h2, h3, h4, h5 {
   font-family: var(--font-display);
@@ -209,14 +215,6 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
 .muted { color: var(--text-mute); }
 .center { text-align: center; }
 .center .lead { margin-inline: auto; }
-
-/* Placeholder markers — replace before launch (see CONTENT-TODO.md) */
-.ph {
-  color: inherit;
-  border-bottom: 1px dashed currentColor;
-  padding-bottom: 1px;
-  opacity: .92;
-}
 
 /* --------------------------------------------------------------------------
    5. Buttons
@@ -351,16 +349,6 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
 .topbar__item { display: inline-flex; align-items: center; gap: .45rem; }
 .topbar__item svg { width: 13px; height: 13px; color: var(--red-hot); flex: none; }
 .topbar a:hover { color: #fff; }
-.topbar__social { display: flex; gap: .35rem; }
-.topbar__social a {
-  display: grid; place-items: center;
-  width: 28px; height: 28px;
-  border-radius: 50%;
-  border: 1px solid var(--line-dark);
-  transition: background-color var(--t) var(--ease), border-color var(--t) var(--ease), transform var(--t) var(--ease);
-}
-.topbar__social svg { width: 13px; height: 13px; }
-.topbar__social a:hover { background: var(--red); border-color: var(--red); color: #fff; transform: translateY(-2px); }
 
 .header {
   position: sticky;
@@ -394,35 +382,18 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
   line-height: 1;
   flex: none;
 }
-.logo__mark {
-  position: relative;
-  width: 34px; height: 34px;
-  background: var(--black);
-  border-radius: 9px;
-  display: grid; place-items: center;
-  overflow: hidden;
-  transition: transform var(--t) var(--ease);
+/* The lockup is the real SPOCART artwork: assets/img/logo.svg on light
+   surfaces, logo-light.svg (same file, recoloured for dark) in the footer and
+   on the coming-soon page. Height drives the size; the intrinsic 1716x770
+   viewBox keeps the aspect ratio without a hard-coded width. */
+.logo__img {
+  height: 40px;
+  width: auto;
+  transition: transform var(--t) var(--ease), opacity var(--t) var(--ease);
 }
-.logo__mark::before {
-  content: "";
-  position: absolute;
-  inset: -30% -60% -30% 46%;
-  background: var(--red);
-  transform: skewX(-16deg);
-}
-.logo__mark span {
-  position: relative;
-  color: #fff;
-  font-size: .95rem;
-  font-weight: 800;
-  letter-spacing: -.04em;
-}
-.logo:hover .logo__mark { transform: rotate(-6deg) scale(1.05); }
-.logo__text { display: inline-block; }
-.logo__text .accent { color: var(--red); }
-.logo--light { color: #fff; }
-.logo--light .logo__mark { background: #fff; }
-.logo--light .logo__mark span { color: var(--black); }
+.logo:hover .logo__img { transform: translateY(-1px) scale(1.02); }
+.logo:focus-visible { border-radius: 6px; }
+.logo--light .logo__img { height: 44px; }
 
 /* Primary menu */
 .nav__menu {
@@ -1382,16 +1353,6 @@ select.input option { background: #fff; color: var(--text); }
 .foot-cta__list li { display: inline-flex; align-items: center; gap: .5rem; }
 .foot-cta__list svg { width: 15px; height: 15px; flex: none; }
 .foot-cta a:hover { text-decoration: underline; text-underline-offset: 3px; }
-.foot-cta__social { display: flex; gap: .4rem; }
-.foot-cta__social a {
-  display: grid; place-items: center;
-  width: 30px; height: 30px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,.4);
-  transition: background-color var(--t) var(--ease), color var(--t) var(--ease), transform var(--t) var(--ease);
-}
-.foot-cta__social svg { width: 14px; height: 14px; }
-.foot-cta__social a:hover { background: #fff; color: var(--red); transform: translateY(-2px); }
 
 .footer {
   background: var(--black);
@@ -1416,12 +1377,15 @@ select.input option { background: #fff; color: var(--text); }
   gap: clamp(1.75rem, 3vw, 2.75rem);
 }
 .footer__about p { color: var(--on-dark-mute); font-size: .88rem; margin: 1.1rem 0 1.25rem; max-width: 34ch; }
-.footer h4 {
+.footer__title {
   color: #fff;
+  font-family: var(--font-display);
   font-size: .8rem;
+  font-weight: 800;
+  line-height: 1.2;
   letter-spacing: .14em;
   text-transform: uppercase;
-  margin-bottom: 1.1rem;
+  margin: 0 0 1.1rem;
 }
 .footer__links li + li { margin-top: .6rem; }
 .footer__links a {
@@ -1558,36 +1522,6 @@ select.input option { background: #fff; color: var(--text); }
   flex-wrap: wrap;
 }
 .soon__notify .input { flex: 1 1 220px; }
-.soon__progress {
-  margin-top: 2.5rem;
-  max-width: 420px;
-  margin-inline: auto;
-  text-align: left;
-}
-.soon__progress small {
-  display: flex;
-  justify-content: space-between;
-  font-size: .72rem;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.6);
-  margin-bottom: .5rem;
-}
-.soon__bar {
-  height: 6px;
-  border-radius: 100px;
-  background: rgba(255,255,255,.16);
-  overflow: hidden;
-}
-.soon__bar i {
-  display: block;
-  height: 100%;
-  width: 0;
-  border-radius: 100px;
-  background: #fff;
-  transition: width 1.4s var(--ease-out);
-}
-
 /* --------------------------------------------------------------------------
    22. Reveal animations
    -------------------------------------------------------------------------- */
@@ -1616,12 +1550,309 @@ select.input option { background: #fff; color: var(--text); }
 .imgwrap[data-img-failed] { min-height: 160px; }
 
 /* --------------------------------------------------------------------------
+   22b. SPOCART components — categories, capability strip, brand marquee,
+        infrastructure band. All built from the existing tokens, so a change to
+        --red or --r-lg still re-skins them.
+   -------------------------------------------------------------------------- */
+
+/* --- 5-up grid (category tiles / brand cards) ----------------------------- */
+.grid--5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+
+/* --- Topbar note --------------------------------------------------------- */
+.topbar__note {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  margin: 0;
+  color: var(--on-dark-soft);
+  white-space: nowrap;
+}
+.topbar__note svg { width: 15px; height: 15px; flex: none; color: var(--red-hot); }
+.topbar__note a:hover { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+
+/* --- Capability strip (replaces the old placeholder stats band) ----------- */
+.caps {
+  background: var(--black);
+  color: var(--on-dark);
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(2.25rem, 4vw, 3.25rem);
+}
+.caps::before {
+  content: "";
+  position: absolute;
+  top: -20%; right: 6%;
+  width: 4px; height: 140%;
+  background: var(--red);
+  transform: skewX(-14deg);
+  opacity: .55;
+}
+.caps__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2.25rem);
+}
+.caps__item {
+  display: grid;
+  gap: .45rem;
+  position: relative;
+  padding-left: 1.75rem;
+}
+.caps__item + .caps__item { padding-left: clamp(1.75rem, 3vw, 2.5rem); }
+.caps__item + .caps__item::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 6%; bottom: 6%;
+  width: 1px;
+  background: var(--line-dark);
+}
+.caps__icon {
+  display: grid; place-items: center;
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  background: rgba(228, 19, 43, .16);
+  color: var(--red-hot);
+  margin-bottom: .3rem;
+}
+.caps__icon svg { width: 19px; height: 19px; }
+.caps__item b {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.5vw, 1.12rem);
+  line-height: 1.2;
+  color: #fff;
+}
+.caps__item > span:last-child { font-size: .85rem; color: var(--on-dark-mute); line-height: 1.55; }
+
+/* --- Category tile (homepage / brands preview) ---------------------------- */
+.cat { position: relative; }
+.cat__count {
+  font-size: .7rem;
+  color: var(--text-mute);
+  letter-spacing: .02em;
+  transition: color var(--t) var(--ease);
+}
+.cat:hover .cat__count { color: var(--red); }
+
+/* --- Category card with subcategory expander (products.html) -------------- */
+.cat-card { display: flex; flex-direction: column; }
+.cat-card__no {
+  position: absolute;
+  top: clamp(1.1rem, 2vw, 1.5rem);
+  right: clamp(1.1rem, 2vw, 1.5rem);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--paper-2);
+  transition: color var(--t) var(--ease);
+}
+.cat-card:hover .cat-card__no { color: rgba(228, 19, 43, .22); }
+.cat-card h3 { padding-right: 2.5rem; }
+
+/* The infrastructure card gets the dark treatment — it is a different kind of
+   business to the rest of the grid and should read that way. */
+.cat-card--feature {
+  background: var(--black);
+  border-color: var(--graphite);
+  color: var(--on-dark);
+}
+.cat-card--feature h3 { color: #fff; }
+.cat-card--feature p { color: var(--on-dark-soft); }
+.cat-card--feature .card__icon { background: rgba(228, 19, 43, .18); color: var(--red-hot); }
+.cat-card--feature .cat-card__no { color: rgba(255, 255, 255, .12); }
+.cat-card--feature:hover .cat-card__no { color: rgba(255, 32, 56, .5); }
+.cat-card--feature .pill { background: rgba(255,255,255,.06); border-color: var(--line-dark); color: var(--on-dark-soft); }
+.cat-card--feature .cat-more summary { color: #fff; border-color: var(--line-dark); }
+.cat-card--feature .link-arrow { color: var(--red-hot); }
+
+/* Pushed to the bottom of the card so the expanders line up across a row
+   even when blurbs run to different line counts. */
+.cat-more { margin-top: auto; padding-top: 1.1rem; }
+.cat-more summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  cursor: pointer;
+  list-style: none;
+  padding: .6rem 0;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--text);
+  transition: color var(--t) var(--ease);
+}
+.cat-more summary::-webkit-details-marker { display: none; }
+.cat-more summary:hover { color: var(--red); }
+.cat-more summary:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; border-radius: 4px; }
+.cat-more__ico {
+  display: grid; place-items: center;
+  width: 22px; height: 22px;
+  flex: none;
+  transition: transform var(--t) var(--ease);
+}
+.cat-more__ico svg { width: 15px; height: 15px; }
+.cat-more[open] .cat-more__ico { transform: rotate(180deg); }
+.cat-more .pill-row { margin-top: .35rem; }
+
+.cat-card__cta { padding-top: 1.1rem; margin-top: 0; }
+
+/* --- Pills ---------------------------------------------------------------- */
+.pill-row--lg { gap: .5rem; margin-top: 1.5rem; }
+.pill-row--lg .pill { font-size: .8rem; padding: .42rem .8rem; }
+.pill-row--dark .pill {
+  background: rgba(255, 255, 255, .06);
+  border-color: var(--line-dark);
+  color: var(--on-dark-soft);
+}
+
+/* --- Brand marquee -------------------------------------------------------- */
+.marquee {
+  --marquee-duration: 46s;
+  display: grid;
+  gap: .9rem;
+  overflow: hidden;
+  /* Fade the ends into the section background instead of hard-cutting them. */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+}
+.marquee__row { overflow: hidden; }
+.marquee__track {
+  display: flex;
+  width: max-content;
+  gap: .9rem;
+  animation: marquee var(--marquee-duration) linear infinite;
+}
+.marquee__row[data-dir="reverse"] .marquee__track { animation-direction: reverse; }
+.marquee__group { display: flex; gap: .9rem; flex: none; padding-right: .9rem; }
+.marquee:hover .marquee__track,
+.marquee:focus-within .marquee__track { animation-play-state: paused; }
+.marquee .brand-plate { min-height: 62px; white-space: nowrap; flex: none; }
+
+@keyframes marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+/* No animation, no hidden content: the rows become plain horizontal scrollers
+   that a keyboard or a touch can still get through. */
+@media (prefers-reduced-motion: reduce) {
+  .marquee { -webkit-mask-image: none; mask-image: none; }
+  .marquee__row { overflow-x: auto; }
+  .marquee__track { animation: none; width: auto; }
+  .marquee__group[aria-hidden="true"] { display: none; }
+}
+
+/* --- Brand card (typographic — see src/data/brands.mjs) ------------------- */
+.brand-card__mark {
+  display: grid;
+  place-items: center;
+  width: 46px; height: 46px;
+  border-radius: 12px;
+  background: var(--black);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1;
+  position: relative;
+  overflow: hidden;
+  transition: background-color var(--t) var(--ease), transform var(--t) var(--ease);
+}
+.brand-card__mark::before {
+  content: "";
+  position: absolute;
+  inset: -30% -60% -30% 58%;
+  background: var(--red);
+  transform: skewX(-16deg);
+}
+.brand-card__mark { isolation: isolate; }
+.brand-card__mark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.brand-card:hover .brand-card__mark { transform: rotate(-6deg) scale(1.06); }
+.brand-card b { position: relative; z-index: 1; }
+
+/* --- Sports infrastructure band ------------------------------------------ */
+.infra-band { overflow: hidden; }
+.infra-band__slash {
+  top: -12%;
+  right: -3%;
+  width: 8px;
+  height: 60%;
+  opacity: .8;
+}
+.infra-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items: center;
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+.infra-grid__media {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--line-dark);
+}
+.infra-grid__media img { width: 100%; height: 100%; object-fit: cover; }
+.infra-grid__media::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(11,11,12,.75), transparent);
+  pointer-events: none;
+}
+
+.page-hero--infra .page-hero__inner { max-width: 940px; }
+
+/* --- Small utilities ------------------------------------------------------ */
+.link-arrow--light { color: #fff; }
+.link-arrow--light:hover { color: var(--red-hot); }
+
+.btn--wa { --btn-bg: #1FA855; --btn-fg: #fff; }
+
+.footer__links--contact li { display: flex; gap: .7rem; align-items: flex-start; }
+.footer__links--contact li + li { margin-top: .85rem; }
+.footer__links--contact svg { width: 16px; height: 16px; flex: none; margin-top: .2rem; color: var(--red-hot); }
+.footer__links--contact small {
+  display: block;
+  font-size: .7rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--on-dark-mute);
+  margin-bottom: .1rem;
+}
+/* The "Based in" line is plain text, not a link — match the link colour so the
+   contact block reads as one list. */
+.footer__addr { color: var(--on-dark-soft); }
+.footer__links--contact a { word-break: break-word; }
+.footer__links--contact a:hover { padding-left: 0; }
+.footer__links--contact a::before { display: none; }
+
+.soon__logo .logo__img { height: 52px; }
+
+/* --------------------------------------------------------------------------
    23. Responsive
    -------------------------------------------------------------------------- */
+@media (max-width: 1180px) {
+  .grid--5 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
 @media (max-width: 1080px) {
   .footer__grid { grid-template-columns: 1.4fr 1fr 1fr; }
   .footer__about { grid-column: 1 / -1; }
   .grid--6 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .caps__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 1.75rem; }
+  .caps__item:nth-child(odd) { padding-left: 1.75rem; }
+  .caps__item:nth-child(odd)::before { display: none; }
 }
 
 @media (max-width: 960px) {
@@ -1702,12 +1933,19 @@ select.input option { background: #fff; color: var(--text); }
 
   .cta-band__inner { flex-direction: column; align-items: flex-start; }
   .cta-band .btn-row { width: 100%; max-width: 340px; }
+
+  .grid--5 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .infra-grid { grid-template-columns: minmax(0, 1fr); }
+  .logo__img { height: 34px; }
+  .logo--light .logo__img { height: 40px; }
 }
 
 @media (max-width: 780px) {
   .grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid--5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .grid--6 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .topbar__note { display: none; }
   .stats__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .stats__item:nth-child(odd) + .stats__item::before { top: 18%; bottom: 18%; }
   .stats__item:nth-child(n+3)::after {
@@ -1727,6 +1965,11 @@ select.input option { background: #fff; color: var(--text); }
 @media (max-width: 620px) {
   .topbar { display: none; }
   .grid--3, .grid--4 { grid-template-columns: minmax(0, 1fr); }
+  .caps__grid { grid-template-columns: minmax(0, 1fr); }
+  .caps__item, .caps__item + .caps__item { padding-left: 0; }
+  .caps__item + .caps__item::before { display: none; }
+  .cat-card__no { font-size: 1.2rem; }
+  .marquee { --marquee-duration: 34s; }
   .grid--6 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .form-grid { grid-template-columns: minmax(0, 1fr); }
   .footer__grid { grid-template-columns: minmax(0, 1fr); }
@@ -1740,7 +1983,9 @@ select.input option { background: #fff; color: var(--text); }
 }
 
 @media (max-width: 420px) {
+  .grid--5 { grid-template-columns: minmax(0, 1fr); }
   .grid--6 { grid-template-columns: minmax(0, 1fr); }
+  .logo__img { height: 30px; }
   .stats__grid { grid-template-columns: minmax(0, 1fr); }
   .stats__item + .stats__item::before { display: none; }
   .stats__item + .stats__item {
@@ -1772,18 +2017,6 @@ select.input option { background: #fff; color: var(--text); }
    ========================================================================== */
 
 /* Build notes — remove these once real content is in place */
-.build-note {
-  margin-top: 1.5rem;
-  padding: .55rem 0 .55rem .9rem;
-  border-left: 3px solid var(--red);
-  font-size: .8rem;
-  line-height: 1.6;
-  color: var(--text-mute);
-  max-width: 78ch;
-}
-.build-note.center { margin-inline: auto; text-align: left; }
-.build-note--dark { color: var(--on-dark-mute); padding-bottom: 1.5rem; }
-.section--dark .build-note { color: var(--on-dark-mute); }
 
 /* Callout notice */
 .notice {
@@ -1921,20 +2154,6 @@ select.input option { background: #fff; color: var(--text); }
   border: 1px solid var(--line);
   border-radius: var(--r-md);
   transition: transform var(--t) var(--ease), border-color var(--t) var(--ease), box-shadow var(--t) var(--ease);
-}
-.brand-card__plate {
-  display: grid;
-  place-items: center;
-  width: 100%;
-  aspect-ratio: 5 / 2;
-  border-radius: var(--r-sm);
-  background:
-    repeating-linear-gradient(-45deg, var(--paper) 0 10px, var(--paper-2) 10px 20px);
-  color: var(--text-mute);
-  font-size: .7rem;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  border-bottom: none;
 }
 .brand-card b { font-family: var(--font-display); font-size: .98rem; }
 .brand-card small { font-size: .74rem; color: var(--text-mute); }

@@ -1,109 +1,103 @@
-# Content to replace before launch
+# Content still to supply
 
-Everything the client still needs to supply. Placeholders are written in `[square brackets]`
-and rendered with a dashed underline (the `.ph` CSS class) so they are impossible to miss on
-the page. Search the project for `[` or for `class="ph"` to find them all.
+The site is personalised with SPOCART's real business information: company name, product
+categories, brands, contact details and service messaging. **Every placeholder that invented
+a fact has been removed** — there are no fake statistics, prices, testimonials, review counts,
+partnerships, delivery times or customer numbers anywhere in the build.
 
-**Nothing on this site claims a fact we could not verify.** No statistics, brand
-partnerships, certifications, delivery times or customer counts have been invented — every
-one of those is left as a slot for the client to fill from their own records.
+What follows is the short list of things that still need a real value, and the things worth
+doing before or shortly after launch.
 
 ---
 
-## 1. Business details — `build.mjs` (`site` object)
+## 1. Confirm the live domain — `build.mjs`
 
-One edit here updates every page.
+`site.SITE_URL` is set to `https://www.spocart.in`. If the live site will be served from a
+different host (e.g. `https://spocart.in` without `www`), change it there and re-run the
+build — canonical URLs, Open Graph URLs and `sitemap.xml` all follow from it.
 
-| Key | Currently | Needs |
+## 2. Optional business details
+
+These were deliberately **left out** rather than faked. Add them only when they can be
+evidenced from real records:
+
+| Detail | Where it would go | Notes |
 |---|---|---|
-| `SITE_URL` | `https://www.spokart.example` | live domain (also fixes canonical/OG/sitemap URLs) |
-| `PHONE` / `PHONE_TEL` | `[+91 XXXXX XXXXX]` / `+910000000000` | display number, and digits-only version for `tel:` |
-| `PHONE_ALT` | placeholder | secondary/landline number, or delete the row on `contact.html` |
-| `WHATSAPP` | `https://wa.me/910000000000` | `https://wa.me/<country code><number>` |
-| `EMAIL` / `EMAIL_SUPPORT` | `…@spokart.example` | real sales and support addresses |
-| `ADDRESS_SHORT` / `ADDRESS_FULL` | placeholders | registered office address |
-| `HOURS` | `[Mon–Sat, 10:00–19:00]` | actual working hours |
-| `REGION` | `[your service region]` | e.g. the states/cities served |
-| `SHOP_URL` | `https://shop.spokart.example` | the live online store |
-| `GST` | `[GSTIN to be added]` | tax registration number |
-| `SOCIAL_LI/IG/FB/YT` | `#` | social profile URLs (delete unused icons from the partials) |
+| Registered office address | `src/partials/header.html` topbar, `src/pages/contact.html` | Add a `PIN`-complete address to `build.mjs` and reintroduce the `#i-pin` row |
+| Working hours | topbar / contact channels grid | Add `HOURS` to `build.mjs` and a `#i-clock` contact card |
+| GSTIN / legal entity name | `src/pages/about.html`, `contact.html` | Trade buyers often ask; publish only what is registered |
+| Social profiles | header / footer | The social icon rows were removed because the URLs were `#`. Add real profile URLs, then re-add the icon list |
+| Founding year, milestones, team | `src/pages/about.html` | The old placeholder timeline was removed. A real, dated timeline can be added back |
 
-Also update `accounts@spokart.example` and `careers@spokart.example` on `contact.html`.
+## 3. Connect the enquiry forms
 
-## 2. Statistics — `src/pages/index.html`
+No backend is wired up. The forms validate in the browser and show a confirmation, but
+nothing is sent anywhere. Add an `action` and `method="POST"` to each
+`<form data-enquiry>` and the script steps aside so the browser submits normally:
 
-The stats band shows `[XXX]+`, `[XX]+`, `[XXX]+`, `[XX]+` for business partners, cities
-served, products supplied and years in the trade. **These are deliberately blank** — fill
-them in only with figures the business can evidence, then delete the grey note beneath the
-band (`.build-note--dark`). The hero badge (`since [YYYY]`) and the hero chip (`[XXX]+
-products in catalogue`) need the same treatment.
+```html
+<form class="form" data-enquiry novalidate action="https://formspree.io/f/XXXX" method="POST">
+```
 
-## 3. Brands — `src/pages/brands.html` and `src/pages/index.html`
+Forms appear on `index.html`, `partner.html`, `contact.html`, `app.html` and
+`coming-soon.html` (their sources are under `src/pages/`).
 
-Twelve `[Brand NN]` slots on the brands page and ten on the homepage, plus a `Logo` plate on
-each brand card.
+Until then, WhatsApp and email are the working enquiry routes — every CTA already points at
+a real, pre-filled `wa.me` or `mailto:` link.
 
-> Add **only** manufacturers Spokart is genuinely authorised to stock and display. Use logo
-> files supplied by the brand, and follow each brand's rules on how their mark and any
-> relationship may be described. Where there is no formal agreement, describe products as
-> available "through authorised channels" rather than implying a partnership.
+## 4. Brands
 
-Delete the red `.notice` block on `brands.html` and the `.build-note` on `index.html` once
-real brands are in.
+`src/data/brands.mjs` holds the 31 brand names, rendered as typographic cards.
 
-## 4. Company story — `src/pages/about.html`
+> **Do not add third-party brand logo files.** They are copyrighted, and using them can imply
+> an endorsement or distribution agreement that has not been confirmed. The wording on the
+> site ("Brands available", "Our product portfolio includes") is chosen for the same reason —
+> do not upgrade it to "authorised distributor" or "official partner" unless that is
+> documented in writing.
 
-- "Who we are" — two or three paragraphs of real company history
-- Milestones — five entries, each with a real year and event (the last one, "Now", can stay)
-- Registration & compliance — legal entity name, tax registration, registered office,
-  trade references. Publish nothing that cannot be evidenced.
+If a brand later supplies approved artwork under a written agreement, add a `logo` path to
+its entry and extend `brandCard()` in `build.mjs`.
 
-## 5. Trade terms — `src/pages/partner.html`
+## 5. Product categories
 
-The FAQ answers contain bracketed gaps for:
-- minimum order value per category
-- whether unregistered buyers, schools or societies can be onboarded
-- typical dispatch and transit times
-- the damage/shortage reporting window and resolution process
-- the exact document list required to open an account
+`src/data/categories.mjs` is the single source of truth for all 15 categories and their
+sub-categories. Editing it updates the homepage preview grid, the filterable grid on
+`products.html`, the B2B form's checkbox list, the footer column and the JSON-LD — no page
+markup needs touching.
 
-Also confirm the "What to keep ready" note in the *How it works* section.
+Confirm each sub-category against what SPOCART actually supplies and remove anything that
+does not apply.
 
-## 6. Product lists — `src/pages/sports.html`
+## 6. Trade terms
 
-Six category sections list typical wholesale lines. Check each against the live stock list
-and delete anything Spokart does not actually supply. Remove the `.build-note` afterwards.
+`partner.html` FAQs answer honestly and generally (pricing is quoted against the requirement,
+availability varies by category). If SPOCART sets firm rules — a minimum order value,
+required documents, dispatch windows, a damage-reporting period — add them there; specifics
+convert better than generalities.
 
-## 7. Contact page — `src/pages/contact.html`
+## 7. Photography
 
-- Head office and warehouse addresses
-- Replace the map placeholder with a Google Maps `<iframe>` (keep `loading="lazy"` and add a
-  descriptive `title` attribute)
-- Real Privacy Policy, Terms of Supply and Returns pages — the footer links currently all
-  point at `contact.html`
+See `PHOTO-CREDITS.md`. All twelve photographs are stock placeholders. Replace them with
+SPOCART's own warehouse, product, installation and customer photography when available —
+particularly on the infrastructure page, where a real completed court or track would do more
+than any stock image.
 
-## 8. Mobile app — `src/pages/app.html`, `src/pages/coming-soon.html`
+## 8. Mobile app
 
-- Trim the feature list to what will actually ship in v1
-- Replace the phone photograph with real app screenshots
+- Trim the `app.html` feature list to what will actually ship in v1
+- Replace `assets/img/app-mockup.svg` with real app screenshots
 - When the listings go live, point the Android/iOS buttons at the Play Store and App Store
   instead of `coming-soon.html` (they appear in `src/partials/footer.html`, `index.html` and
   `app.html`)
-- Set a real value on the coming-soon progress bar, or delete `.soon__progress`
 
-## 9. Forms
+## 9. Social preview image
 
-No backend is connected. Add an `action` and `method="POST"` to each `<form data-enquiry>`
-and the browser will submit normally — see the README. Forms appear on `index.html`,
-`partner.html`, `contact.html`, `app.html` and `coming-soon.html`.
+`assets/img/og-image.png` (1200×630) is what WhatsApp, LinkedIn, Facebook and X actually
+render — SVG previews are not supported by any of them. It is generated from
+`assets/img/og-image.svg`; if you edit the SVG, re-export the PNG at 1200×630 and keep both
+in sync.
 
-## 10. Photography
+## 10. After any change
 
-See `PHOTO-CREDITS.md`. All twelve images are stock placeholders and should be swapped for
-Spokart's own warehouse, product and customer photography.
-
-## 11. Housekeeping
-
-- Delete every `.build-note` and `.notice` block once its content is resolved
-- Remove the `.ph` class from any element whose bracketed text you replace
-- Run `npm run build` after each change
+Run `npm run build`, then reload. Never edit the `.html` files at the project root — they are
+build output and get overwritten.

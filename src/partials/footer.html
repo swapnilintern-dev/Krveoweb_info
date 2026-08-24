@@ -1,17 +1,11 @@
 <div class="foot-cta">
   <div class="container foot-cta__inner">
     <ul class="foot-cta__list">
-      <li><svg aria-hidden="true"><use href="#i-pin"></use></svg><span class="ph">{{ADDRESS_SHORT}}</span></li>
-      <li><svg aria-hidden="true"><use href="#i-phone"></use></svg><a href="tel:{{PHONE_TEL}}" class="ph">{{PHONE}}</a></li>
-      <li><svg aria-hidden="true"><use href="#i-mail"></use></svg><a href="mailto:{{EMAIL}}" class="ph">{{EMAIL}}</a></li>
-      <li><svg aria-hidden="true"><use href="#i-whatsapp"></use></svg><a href="{{WHATSAPP}}" target="_blank" rel="noopener">WhatsApp Us</a></li>
+      <li><svg aria-hidden="true"><use href="#i-phone"></use></svg><a href="tel:{{PHONE_TEL}}">{{PHONE}}</a></li>
+      <li><svg aria-hidden="true"><use href="#i-mail"></use></svg><a href="{{MAIL_SALES}}">{{EMAIL}}</a></li>
+      <li><svg aria-hidden="true"><use href="#i-headset"></use></svg><a href="{{MAIL_SUPPORT}}">{{EMAIL_SUPPORT}}</a></li>
+      <li><svg aria-hidden="true"><use href="#i-whatsapp"></use></svg><a href="{{WA_GENERAL}}" target="_blank" rel="noopener">WhatsApp Us</a></li>
     </ul>
-    <div class="foot-cta__social" aria-label="Follow Spokart">
-      <a href="{{SOCIAL_LI}}" aria-label="Spokart on LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"></use></svg></a>
-      <a href="{{SOCIAL_IG}}" aria-label="Spokart on Instagram"><svg aria-hidden="true"><use href="#i-instagram"></use></svg></a>
-      <a href="{{SOCIAL_FB}}" aria-label="Spokart on Facebook"><svg aria-hidden="true"><use href="#i-facebook"></use></svg></a>
-      <a href="{{SOCIAL_YT}}" aria-label="Spokart on YouTube"><svg aria-hidden="true"><use href="#i-youtube"></use></svg></a>
-    </div>
   </div>
 </div>
 
@@ -19,11 +13,14 @@
   <div class="container">
     <div class="footer__grid">
       <div class="footer__about">
-        <a class="logo logo--light" href="index.html" aria-label="Spokart — home">
-          <span class="logo__mark" aria-hidden="true"><span>S</span></span>
-          <span class="logo__text">Spo<span class="accent">kart</span></span>
+        <a class="logo logo--light" href="index.html">
+          <img class="logo__img" src="assets/img/logo-light.svg" width="98" height="44" alt="SPOCART — sports equipment supplier in Ranchi, Jharkhand" loading="lazy">
         </a>
-        <p>Wholesale supply of sports equipment, apparel and accessories to retailers, academies, schools and institutions across <span class="ph">{{REGION}}</span>.</p>
+        <p>
+          Your complete sports supply partner — equipment, apparel, footwear, accessories,
+          institutional supplies and sports infrastructure for retailers, academies, schools,
+          clubs, gyms and organisations. Based in {{LOCATION}}, supplying across {{REGION}}.
+        </p>
         <div class="footer__store">
           <a class="store-btn" href="coming-soon.html?app=android">
             <svg aria-hidden="true"><use href="#i-android"></use></svg>
@@ -36,57 +33,74 @@
         </div>
       </div>
 
-      <nav aria-labelledby="f-company">
-        <h4 id="f-company">Company</h4>
+      <nav aria-labelledby="f-links">
+        <h2 class="footer__title" id="f-links">Quick Links</h2>
         <ul class="footer__links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="products.html">Products</a></li>
           <li><a href="brands.html">Brands</a></li>
-          <li><a href="app.html">Mobile App</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="b2b-sports-supply.html">B2B Supply</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
 
-      <nav aria-labelledby="f-products">
-        <h4 id="f-products">Products</h4>
+      <nav aria-labelledby="f-cats">
+        <h2 class="footer__title" id="f-cats">Featured Categories</h2>
         <ul class="footer__links">
-          <li><a href="sports.html#cricket">Cricket</a></li>
-          <li><a href="sports.html#football">Football</a></li>
-          <li><a href="sports.html#racket">Racket Sports</a></li>
-          <li><a href="sports.html#fitness">Fitness &amp; Gym</a></li>
-          <li><a href="sports.html">All Categories</a></li>
+{{FOOTER_CATEGORIES}}
+          <li><a href="products.html">All {{CATEGORY_COUNT}} Products</a></li>
         </ul>
       </nav>
 
       <nav aria-labelledby="f-b2b">
-        <h4 id="f-b2b">For Business</h4>
+        <h2 class="footer__title" id="f-b2b">For Business</h2>
         <ul class="footer__links">
-          <li><a href="partner.html">Become a Partner</a></li>
-          <li><a href="partner.html#who">Who We Supply</a></li>
-          <li><a href="partner.html#how">How It Works</a></li>
-          <li><a href="partner.html#faq">B2B FAQs</a></li>
-          <li><a href="{{SHOP_URL}}" target="_blank" rel="noopener">Shop Online</a></li>
+          <li><a href="b2b-sports-supply.html#enquiry">Become a Partner</a></li>
+          <li><a href="b2b-sports-supply.html#who">Who We Supply</a></li>
+          <li><a href="b2b-sports-supply.html#institutions">Schools &amp; Institutions</a></li>
+          <li><a href="b2b-sports-supply.html#how">How It Works</a></li>
+          <li><a href="b2b-sports-supply.html#faq">B2B FAQs</a></li>
+          <li><a href="app.html">Mobile App</a></li>
         </ul>
       </nav>
 
-      <nav aria-labelledby="f-support">
-        <h4 id="f-support">Support</h4>
-        <ul class="footer__links">
-          <li><a href="contact.html#enquiry">Send an Enquiry</a></li>
-          <li><a href="tel:{{PHONE_TEL}}">Call Sales</a></li>
-          <li><a href="{{WHATSAPP}}" target="_blank" rel="noopener">WhatsApp</a></li>
-          <li><a href="contact.html#offices">Our Offices</a></li>
-          <li><a href="partner.html#faq">FAQs</a></li>
+      <nav class="footer__contact" aria-labelledby="f-contact">
+        <h2 class="footer__title" id="f-contact">Contact</h2>
+        <ul class="footer__links footer__links--contact">
+          <li>
+            <svg aria-hidden="true"><use href="#i-mail"></use></svg>
+            <span><small>Sales</small><a href="{{MAIL_SALES}}">{{EMAIL}}</a></span>
+          </li>
+          <li>
+            <svg aria-hidden="true"><use href="#i-headset"></use></svg>
+            <span><small>Support</small><a href="{{MAIL_SUPPORT}}">{{EMAIL_SUPPORT}}</a></span>
+          </li>
+          <li>
+            <svg aria-hidden="true"><use href="#i-phone"></use></svg>
+            <span><small>Phone &amp; WhatsApp</small><a href="tel:{{PHONE_TEL}}">{{PHONE}}</a></span>
+          </li>
+          <li>
+            <svg aria-hidden="true"><use href="#i-pin"></use></svg>
+            <span><small>Based in</small>
+              <span class="footer__addr">{{CITY}}, {{STATE}}, {{COUNTRY}}</span>
+            </span>
+          </li>
         </ul>
+        <p class="btn-row" style="margin-top:1.1rem">
+          <a class="btn btn--sm btn--wa" href="{{WA_GENERAL}}" target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> WhatsApp Us
+          </a>
+        </p>
       </nav>
     </div>
 
     <div class="footer__bottom">
-      <p>&copy; <span data-year>2026</span> Spokart. All rights reserved. <span class="ph">Company registration details to be added.</span></p>
+      <p>&copy; <span data-year>2026</span> SPOCART. All rights reserved.</p>
       <nav aria-label="Legal">
-        <a href="contact.html">Privacy Policy</a>
-        <a href="contact.html">Terms of Supply</a>
-        <a href="contact.html">Returns &amp; Exchange</a>
+        <a href="contact.html#enquiry">Enquiries</a>
+        <a href="b2b-sports-supply.html#faq">Terms of Supply</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </div>
