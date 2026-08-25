@@ -37,7 +37,11 @@
 <!-- Favicons: the SPOCART app-icon artwork. PNG rather than SVG because the
      source is traced raster art — an SVG version is ~560KB, which is far too
      heavy for an asset every page requests. -->
-<!-- SPOCART brand favicon -->
+<!-- SPOCART brand favicon. /favicon.ico is a real multi-size ICO (16/32/48) and is
+     listed first: Google reads the icon for search results from here, and 48px is
+     the size its favicon guidance asks for. -->
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/img/favicon-48.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon-192.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">

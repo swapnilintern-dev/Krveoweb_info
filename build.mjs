@@ -90,7 +90,10 @@ const organization = {
   name: 'SPOCART',
   alternateName: 'Spocart Sports',
   url: site.SITE_URL,
-  logo: `${site.SITE_URL}/assets/img/logo.svg`,
+  // PNG, not logo.svg: that file is traced raster art wrapped in SVG (~170KB) and
+  // image processors handle it unreliably. This is the same brand mark as a clean
+  // 192px raster, comfortably over Google's 112px minimum for Organization logos.
+  logo: `${site.SITE_URL}/assets/img/favicon-192.png`,
   image: `${site.SITE_URL}/assets/img/og-image.png`,
   description:
     'SPOCART is a wholesale and B2B sports equipment supplier based in Ranchi, Jharkhand, ' +
