@@ -265,7 +265,11 @@ function xImg(html) {
  */
 function headExtra(meta) {
   if (!meta.preload) return '';
-  const srcset = IMG_WIDTHS.map((w) => `assets/img/photos/${meta.preload}-${w}.jpg ${w}w`).join(', ');
+
+  const srcset = IMG_WIDTHS
+    .map((w) => `assets/img/photos/${meta.preload}-${w}.jpg ${w}w`)
+    .join(', ');
+
   return `<link rel="preload" as="image" href="assets/img/photos/${meta.preload}-1600.jpg" ` +
          `imagesrcset="${srcset}" imagesizes="${meta.preloadSizes || '100vw'}" fetchpriority="high">`;
 }
